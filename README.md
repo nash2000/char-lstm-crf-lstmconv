@@ -7,7 +7,7 @@ The hybrid word representation is obtained by separately apply LSTM-based and Co
 
 Much of base codes come from the [LSTM code](http://deeplearning.net/tutorial/lstm.html) in the Theano tutorial. 
 
-## Data
+# Data
 Data should be placed at the `data/kornerdataset` directory, split into `train.txt`, `valid.txt`, and `test.txt'.
 
 Similar to the format of CoNLL-2002 shared task, all data files contain a single morpheme per line with it associated named entity tag in the IOB2 format. Sentences are separated by empty lines. Each line corresponding to a single morpheme consists of the folloiwng four fields:
@@ -41,7 +41,7 @@ Data files for pretrained embedding vectors should be located at the directory l
 For Korean NER task, data files for pretrained embeddings vectors of Korean are located at `data/embedding/glove100d`
 
 
-## Preprocessing Data by Adding Lexicon Features
+# Preprocessing Data by Adding Lexicon Features
 
 To add lexicon features, lexicon files should be located in the `data/lexicons`, split into `LC.lexicon`, `OG.lexicon`, `PS.lexicon`
 where our Korean NER task have four NER tags: 
@@ -82,7 +82,7 @@ An example of processed data is given as follows:
 ```
 
 
-## Training a model
+# Training a model
 Check first whether all data files exist in `data/kornerdatasetlexicon`
 
 Training consists of three processing steps, as follows:
@@ -203,7 +203,7 @@ Run the command for training a NER model.
 ```
 
 
-## Testing a model
+# Testing a model
 
 ##### 1. Apply the trained model to test set
 
@@ -219,4 +219,15 @@ The tagged results will be stored in the files with prefix `models/kornerdataset
 python cclab/bilstmcrf/model_prediction_result_print.py models/kornerdatasetlexicondb/model_output_feat_char.dat
 ```
 
+# Evaluation result
 
+Comparison of the best performance results of char-LSTM, char-ConvNet, and
+char-LSTM+ConvNet.
+
+- char-LSTM+ConvNet: The proposed hybrid word representation
+
+||chardim=300|chardim=100|
+|---|---|---|
+|char-LSTM|88.66%|88.30%|
+|char-ConvNet|88.27%|88.60%|
+|char-LSTM+ConvNet|**89.04**|**89.01%**|
