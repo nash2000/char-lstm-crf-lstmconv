@@ -10,7 +10,7 @@ Much of base codes come from the [LSTM code](http://deeplearning.net/tutorial/ls
 # Data
 Data should be placed at the `data/kornerdataset` directory, split into `train.txt`, `valid.txt`, and `test.txt'.
 
-Similar to the format of CoNLL-2002 shared task, all data files contain a single morpheme per line with it associated named entity tag in the IOB2 format. Sentences are separated by empty lines. Each line corresponding to a single morpheme consists of the folloiwng four fields:
+Similar to the format of CoNLL-2002 shared task, all data files contain a single morpheme per line with it associated named entity tag in the IOB2 format. Sentences are separated by empty lines. Each line corresponding to a single morpheme consists of the following four fields:
 
 1. **Morpheme info**: The surface form of a morpheme associated with its POS tag
 2. **POS tag**: The POS tag of a morpheme
