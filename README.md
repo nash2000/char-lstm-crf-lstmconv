@@ -205,7 +205,7 @@ Run the command for training a NER model.
 
 ## Testing a model
 
-Apply the trained model to test set.
+##### 1. Apply the trained model to test set
 
 ``` sh
 python cclab/bilstmcrf/bilstmcrf_charlstmconv_lexicon.py -j 100 -c 3 -h 250  -t models/kornerdatasetlexicondb/model_output_feat_char.dat -d kornerdatasetlexicondb -p models/kornerdatasetlexicondb
@@ -213,7 +213,7 @@ python cclab/bilstmcrf/bilstmcrf_charlstmconv_lexicon.py -j 100 -c 3 -h 250  -t 
 The tagged results will be stored in the files with prefix `models/kornerdatasetlexicondb/model_output_feat_char.dat'
 
 
-Print the tagged results from the files. 
+##### 2. Print the tagged results from the files
 
 ``` sh
 python cclab/bilstmcrf/model_prediction_result_print.py models/kornerdatasetlexicondb/model_output_feat_char.dat
