@@ -230,4 +230,4 @@ char-LSTM+ConvNet.
 |---|---|---|
 |char-LSTM|88.66%|88.30%|
 |char-ConvNet|88.27%|88.60%|
-|char-LSTM+ConvNet|**89.04**|**89.01%**|
+|char-LSTM+ConvNet|**89.04%**|**89.01%**|
