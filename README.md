@@ -46,7 +46,7 @@ For Korean NER task, data files for pretrained embeddings vectors of Korean are 
 To add lexicon features, lexicon files should be located in the `data/lexicons`, split into `LC.lexicon`, `OG.lexicon`, `PS.lexicon`
 where our Korean NER task have four NER tags: 
 
-- PS: Person, LC: Location, OG: Organization, DT: Date/Time
+- **PS**: Person, **LC**: Location, **OG**: Organization, **DT**: Date/Time
 
 
 Run the following commands: 
