@@ -8,7 +8,7 @@ The hybrid word representation is obtained by separately apply LSTM-based and Co
 Much of base codes come from the [LSTM code](http://deeplearning.net/tutorial/lstm.html) in the Theano tutorial. 
 
 # Data
-Data should be placed at the `data/kornerdataset` directory, split into `train.txt`, `valid.txt`, and `test.txt'.
+Data should be placed at the `data/kornerdataset` directory, split into `train.txt`, `valid.txt`, and `test.txt`.
 
 Similar to the format of CoNLL-2002 shared task, all data files contain a single morpheme per line with it associated named entity tag in the IOB2 format. Sentences are separated by empty lines. Each line corresponding to a single morpheme consists of the following four fields:
 
@@ -46,7 +46,7 @@ For Korean NER task, data files for pretrained embeddings vectors of Korean are 
 To add lexicon features, lexicon files should be located in the `data/lexicons`, split into `LC.lexicon`, `OG.lexicon`, `PS.lexicon`
 where our Korean NER task have four NER tags: 
 
-- PS: Person, LC: Location, OG: Organization, DT: Date/Time
+- **PS**: Person, **LC**: Location, **OG**: Organization, **DT**: Date/Time
 
 
 Run the following commands: 
