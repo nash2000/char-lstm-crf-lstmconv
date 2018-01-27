@@ -3,7 +3,7 @@
 Theano implementation of ***character-based LSTM CRFs*** presented in the paper [Improving LSTM CRFs Using Character-based Compositions for Korean Named Entity Recognition]().
 
 This neural model combines two types of character-based compositional word representations, one based on convolutional neural networks ([ConvNets](http://proceedings.mlr.press/v32/santos14.html)) and another on [bidirectional LSTMs](http://www.cs.cmu.edu/~lingwang/papers/emnlp2015.pdf), building a ***hybrid word representation***.
-The hybrid word representation is obtained by separately apply LSTM-based and ConvNet-based compositions to input character vectors and concatenate the resulting compositional morpheme vectors to finally generate the hybrid representation of a morpheme
+The hybrid word representation is obtained by separately apply LSTM- and ConvNet-based compositions to input character vectors and concatenate the resulting compositional morpheme vectors to finally generate the hybrid representation of a morpheme
 
 Much of base codes come from the [LSTM code](http://deeplearning.net/tutorial/lstm.html) in the Theano tutorial. 
 
@@ -34,7 +34,7 @@ An example of data is given as follows:
 "/SS    SS      I       O
 ```
 
-#### Pretrained embedding vectors
+#### Pretrained Embedding Vectors
 
 Data files for pretrained embedding vectors should be located at the directory like `data/embedding/XXX`, which include `embeddings.txt` and `words.lst` where `XXX` is the subdirectory name for the embedding method and the dimensionality.
 
@@ -87,9 +87,9 @@ Check first whether all data files exist in `data/kornerdatasetlexicon`
 
 Training consists of three processing steps, as follows:
 
-- Instead of reading text files directly, we first convert data (train/dev/test) to numpy arrays and store them in a pickle file and create a dictionary pickle that stores all the morphemes in data. 
+- Instead of reading text files directly, we first convert data (train/dev/test) to numpy arrays and store them in a pickle file. We then create a dictionary pickle that stores all the morphemes in data. 
 
-#### 1. Build pickle files for data
+#### 1. Build Pickle Files for Data
 
 Run the following command to build pickle files.
 
@@ -100,11 +100,11 @@ python cclab/bilstmcrf/kornerdatasetlexicondb_preprocess.py
 This command will create `kornerdatasetlexicondb.pkl` (the pickle file for data) and `kornerdatasetlexicondb.dict.pkl` (the pickle file for dictionary).
 
 
-#### 2. Filter and align pretrained embedding vectors 
+#### 2. Filter and Align Pretrained Embedding Vectors 
 
 Run the following command to filter and align pretrained embedding vectors 
 
-- Usually, the size of pretrained embedding vectors are significantly larger than those provided in data. To make the training efficient, we need to select only morphemes that occur at least once in dataset, among all the pretrained morphemes. In selected files, the morpheme ids should be aligned with those of the morpheme dictionary.
+- Usually, the size of the pretrained embedding vectors are significantly larger than those provided in data. To make the training efficient, we need to select only morphemes that occur at least once in the dataset, among all the pretrained morphemes. In selected files, the morpheme ids should be aligned with those of the morpheme dictionary.
 
 ``` sh
 mkdir -p models/kornerdatasetlexicondb
@@ -154,7 +154,7 @@ Epoch  0 Update  180 Cost  24.1368789673
 ...
 ```
 
-## Training a model (using a perl script)
+## Training a Model (using a perl script)
 
 Run the perl script that include the three processing steps above.
 
@@ -162,7 +162,7 @@ Run the perl script that include the three processing steps above.
 ./scripts/bilstmcrf_charlstmconv_lexicon_train.pl
 ``` 
 
-## Training a model (without lexicon features)
+## Training a Model (without lexicon features)
 Check first whether all data files exist in `data/kornerdataset`
 
 Run the perl script that include the three processing steps above.
@@ -173,7 +173,7 @@ Run the perl script that include the three processing steps above.
 
 Or, run the three processing steps sequentially:
 
-#### 1. Build pickle files for data
+#### 1. Build Pickle Files for Data
 
 ``` sh
 python cclab/bilstmcrf/kornerdatasetdb_preprocess.py
@@ -182,7 +182,7 @@ python cclab/bilstmcrf/kornerdatasetdb_preprocess.py
 The command will create `kornerdatasetdb.pkl` (the pickle file for data) and `kornerdatasetdb.dict.pkl` (the pickle file for dictionary).
 
 
-#### 2. Filter and align pretrained embedding vectors 
+#### 2. Filter and Align Pretrained Embedding Vectors 
 
 Run the following command to filter and align pretrained embedding vectors 
 
@@ -203,14 +203,14 @@ Run the command for training a NER model.
 ```
 
 
-# Testing a model
+# Testing a Model
 
 ##### 1. Apply the trained model to test set
 
 ``` sh
 python cclab/bilstmcrf/bilstmcrf_charlstmconv_lexicon.py -j 100 -c 3 -h 250  -t models/kornerdatasetlexicondb/model_output_feat_char.dat -d kornerdatasetlexicondb -p models/kornerdatasetlexicondb
 ```
-The tagged results will be stored in the files with prefix `models/kornerdatasetlexicondb/model_output_feat_char.dat'
+The tagged results will be stored in the files with prefix `models/kornerdatasetlexicondb/model_output_feat_char.dat`
 
 
 ##### 2. Print the tagged results from the files
